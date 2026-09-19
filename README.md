@@ -24,7 +24,10 @@ RAG systems:
   when the corpus doesn't have the answer, rather than silently falling back
   to its own parametric knowledge.
 - **A real evaluation harness** — retrieval recall/precision measured against
-  a hand-labeled query set, not eyeballed "it looks right" testing.
+  a hand-labeled query set, not eyeballed "it looks right" testing. Current
+  numbers: **recall@5 = 1.00, precision@5 = 0.307** over 15 questions (see
+  [`docs/eval_results.md`](docs/eval_results.md) for the full breakdown and
+  why precision is capped well below 1.0 on a corpus this small).
 
 ## Architecture
 
