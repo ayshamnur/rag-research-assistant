@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What problem does RAG solve for large language models?",
+    "relevant_doc_ids": ["lewis2020rag", "gao2023ragsurvey"]
+  },
+  {
+    "question": "What is the difference between RAG-Sequence and RAG-Token?",
+    "relevant_doc_ids": ["lewis2020rag"]
+  },
+  {
+    "question": "How does dense passage retrieval compare to BM25 for open-domain QA?",
+    "relevant_doc_ids": ["karpukhin2020dpr"]
+  },
+  {
+    "question": "How does ColBERT make BERT-based retrieval efficient?",
+    "relevant_doc_ids": ["khattab2020colbert"]
+  },
+  {
+    "question": "What is HyDE and how does it perform zero-shot dense retrieval without labeled data?",
+    "relevant_doc_ids": ["gao2022hyde"]
+  },
+  {
+    "question": "How does PagedAttention reduce KV cache memory waste in LLM serving?",
+    "relevant_doc_ids": ["kwon2023vllm"]
+  },
+  {
+    "question": "What throughput improvement does vLLM achieve over prior serving systems?",
+    "relevant_doc_ids": ["kwon2023vllm"]
+  },
+  {
+    "question": "How does FlashAttention reduce memory reads and writes during attention?",
+    "relevant_doc_ids": ["dao2022flashattention"]
+  },
+  {
+    "question": "What speedup does speculative decoding achieve and does it change the output distribution?",
+    "relevant_doc_ids": ["leviathan2023speculative"]
+  },
+  {
+    "question": "How much can GPTQ compress a 175 billion parameter model and at what accuracy cost?",
+    "relevant_doc_ids": ["frantar2022gptq"]
+  },
+  {
+    "question": "What are reflection tokens in Self-RAG and what do ISREL and ISSUP evaluate?",
+    "relevant_doc_ids": ["asai2023selfrag"]
+  },
+  {
+    "question": "What are the three RAG paradigms described in the RAG survey paper?",
+    "relevant_doc_ids": ["gao2023ragsurvey"]
+  },
+  {
+    "question": "What evaluation metrics are used to assess RAG system faithfulness and answer relevance?",
+    "relevant_doc_ids": ["gan2025ragevalsurvey"]
+  },
+  {
+    "question": "How is Contriever trained without any labeled supervision data?",
+    "relevant_doc_ids": ["izacard2022contriever"]
+  },
+  {
+    "question": "Which paper introduces reciprocal use of a smaller draft model to accelerate a larger target model's decoding?",
+    "relevant_doc_ids": ["leviathan2023speculative"]
+  }
+]

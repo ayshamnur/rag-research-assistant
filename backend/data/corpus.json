@@ -1,0 +1,110 @@
+[
+  {
+    "id": "lewis2020rag",
+    "arxiv_id": "2005.11401",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": "Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela",
+    "venue": "NeurIPS 2020",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "text": "Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. This paper introduces Retrieval-Augmented Generation (RAG) models which combine a pre-trained parametric memory (a seq2seq model) with a non-parametric memory (a dense vector index of Wikipedia, accessed with a pre-trained neural retriever). Two formulations are compared: RAG-Sequence, which uses the same retrieved passage to generate the complete sequence, and RAG-Token, which can use different passages per generated token, allowing the generator to combine evidence from several documents. RAG models are fine-tuned end-to-end, jointly learning the retriever and generator. On open-domain question answering, RAG establishes new state-of-the-art results on three benchmarks, outperforming both parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, RAG models produce more specific, diverse, and factual language than a parametric-only seq2seq baseline. The non-parametric memory can be swapped out at inference time without retraining, offering a route to updating a model's knowledge as the world changes, and the retrieved documents give a natural mechanism for provenance and interpretability."
+  },
+  {
+    "id": "karpukhin2020dpr",
+    "arxiv_id": "2004.04906",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "authors": "Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih",
+    "venue": "EMNLP 2020",
+    "url": "https://arxiv.org/abs/2004.04906",
+    "text": "Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. This work shows that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dual-encoder framework. A separate BERT encoder is used for questions and passages, and relevance is computed as the dot product of the resulting embeddings, making retrieval efficient at scale using approximate nearest-neighbor search over a pre-computed passage index. When evaluated on a wide range of open-domain QA datasets, the dense retriever outperforms a strong Lucene-BM25 system by 9 to 19 points absolute in terms of top-20 passage retrieval accuracy, and helps an end-to-end QA system establish new state-of-the-art results on multiple open-domain QA benchmarks. The results demonstrate that sparse lexical overlap is not necessary for accurate retrieval, and that dense representations trained with in-batch negatives and hard negatives mined from BM25 can substantially close the gap to, and even surpass, sparse methods without relying on any specialized index structure."
+  },
+  {
+    "id": "khattab2020colbert",
+    "arxiv_id": "2004.12832",
+    "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+    "authors": "Omar Khattab, Matei Zaharia",
+    "venue": "SIGIR 2020",
+    "url": "https://arxiv.org/abs/2004.12832",
+    "text": "Recent progress in Natural Language Understanding driven by pre-trained BERT-based language models has led to gains in ad-hoc document retrieval. Existing BERT-based rankers adopt a cross-encoder architecture, expensively feeding each query-document pair through a large transformer jointly, which does not scale to large document collections. This paper presents ColBERT, a ranking model that adapts deep language models for efficient retrieval by introducing a late interaction architecture: it independently encodes the query and the document using BERT and then employs a cheap yet powerful interaction step that models fine-grained similarity between the two representations. By delaying but retaining fine-granular interaction, ColBERT can leverage the expressiveness of deep language models while pre-computing document representations offline, dramatically speeding up query processing. Because the offline computation of document representations can be indexed with vector-similarity search, ColBERT can be used for end-to-end retrieval directly from a large document collection, not just re-ranking. Extensive evaluation shows ColBERT's effectiveness is competitive with existing BERT-based models, while executing two orders of magnitude faster and requiring four orders of magnitude fewer FLOPs per query."
+  },
+  {
+    "id": "gao2022hyde",
+    "arxiv_id": "2212.10496",
+    "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE)",
+    "authors": "Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan",
+    "venue": "arXiv preprint, 2022",
+    "url": "https://arxiv.org/abs/2212.10496",
+    "text": "Building effective dense retrieval systems in a zero-shot setting, without any relevance-labeled data, remains challenging, since existing dense retrievers require costly, task-specific supervision to perform well. This work proposes Hypothetical Document Embeddings (HyDE), a method that operates in two stages. Given a query, an instruction-following language model (e.g. GPT-3) is first prompted to generate a hypothetical document that would answer the query; this hypothetical document captures relevance patterns even though it may contain factual inaccuracies or 'hallucinations'. Second, an unsupervised contrastively-trained encoder (e.g. Contriever) encodes this hypothetical document into an embedding vector, which is used to retrieve real documents from the corpus that are similar in the embedding space. The encoding step is expected to filter out incorrect details from the hypothetical document, grounding the final retrieval in the actual corpus. HyDE substantially outperforms the prior state-of-the-art unsupervised dense retriever Contriever, showing strong performance comparable to fine-tuned retrievers across a wide range of tasks, including web search, question answering, and fact verification in multiple languages."
+  },
+  {
+    "id": "kwon2023vllm",
+    "arxiv_id": "2309.06180",
+    "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "authors": "Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, Ion Stoica",
+    "venue": "SOSP 2023",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "text": "High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time. However, existing systems struggle because the key-value cache (KV cache) memory for each request is huge and grows and shrinks dynamically. When managed inefficiently, this memory can be significantly wasted by fragmentation and redundant duplication, limiting the batch size. To address this problem, this paper proposes PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, vLLM is built, an LLM serving system that achieves near-zero waste in KV cache memory and flexible sharing of KV cache within and across requests to further reduce memory usage. Evaluations show that vLLM improves the throughput of popular LLMs by 2 to 4 times with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca. The improvement is more pronounced with longer sequences, larger models, and more complex decoding algorithms such as beam search and parallel sampling, where memory sharing across requests yields the largest gains."
+  },
+  {
+    "id": "dao2022flashattention",
+    "arxiv_id": "2205.14135",
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "authors": "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré",
+    "venue": "arXiv preprint, 2022",
+    "url": "https://arxiv.org/abs/2205.14135",
+    "text": "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length. Approximate attention methods have attempted to address this problem by trading off model quality to reduce the compute complexity, but often do not achieve wall-clock speedup because they focus on FLOP reduction and tend to also ignore overheads from memory access (IO). This paper proposes FlashAttention, an IO-aware exact attention algorithm that uses tiling to reduce the number of memory reads and writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM. FlashAttention is analyzed to show it requires fewer HBM accesses than standard attention, and is optimal for a range of SRAM sizes. FlashAttention trains Transformers faster than existing baselines: 15% end-to-end wall-clock speedup on BERT-large, 3x speedup on GPT-2, and 2.4x speedup on long-range arena. FlashAttention and its block-sparse variant enable longer context in Transformers, yielding higher quality models and, for the first time, the ability to achieve better-than-chance performance on the Path-X challenge (sequence length 16K) and the Path-256 challenge (sequence length 64K)."
+  },
+  {
+    "id": "leviathan2023speculative",
+    "arxiv_id": "2211.17192",
+    "title": "Fast Inference from Transformers via Speculative Decoding",
+    "authors": "Yaniv Leviathan, Matan Kalman, Yossi Matias",
+    "venue": "ICML 2023",
+    "url": "https://arxiv.org/abs/2211.17192",
+    "text": "Inference from large autoregressive models like Transformers is slow, since generating K tokens sequentially requires K serial runs of the model. This work introduces speculative decoding, an algorithm to accelerate the inference of large, memory-bound models without changing their outputs or requiring retraining. The method is based on the observation that the latency of parallel scoring of short continuations, generated by a faster but less powerful approximation model, is comparable to that of a single decoding step of the large target model. A novel sampling method is used that preserves the exact output distribution of the target model, computing several tokens in parallel using the small model to guess ahead and the large model to determine which guesses to accept. Speculative decoding achieves a 2x to 3x acceleration compared to the standard T5X implementation on T5-XXL, with identical outputs, and requires no changes to the model architecture or retraining, making it broadly applicable to accelerating existing off-the-shelf autoregressive models."
+  },
+  {
+    "id": "frantar2022gptq",
+    "arxiv_id": "2210.17323",
+    "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+    "authors": "Elias Frantar, Saleh Ashkboos, Torsten Hoefler, Dan Alistarh",
+    "venue": "ICLR 2023",
+    "url": "https://arxiv.org/abs/2210.17323",
+    "text": "Generative Pre-trained Transformer (GPT) models set themselves apart through breakthrough performance across complex language modelling tasks, but also by their extremely high computational and storage costs. Specifically, due to their massive scale, even inference for large, highly-accurate GPT models may require multiple performant GPUs, which limits the usability of such models. While there is emerging work on relieving this pressure via model compression, the applicability and performance of existing compression techniques is limited by the scale and complexity of GPT models. This paper presents GPTQ, a new one-shot weight quantization method based on approximate second-order information, that is both highly accurate and highly efficient. GPTQ can quantize GPT models with 175 billion parameters in approximately four GPU hours, reducing the bitwidth down to 3 or 4 bits per weight, with negligible accuracy degradation relative to the uncompressed baseline. The method more than doubles the compression gains relative to previously proposed one-shot quantization methods, allowing for the first time a 175 billion-parameter model to be executed inside a single GPU for generative inference. End-to-end inference speedups of around 3.25x are shown on high-end GPUs (NVIDIA A100), and 4.5x on more cost-effective ones (NVIDIA A6000), while the compressed models can still be executed efficiently even with 2-bit or ternary quantization."
+  },
+  {
+    "id": "asai2023selfrag",
+    "arxiv_id": "2310.11511",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": "Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, Hannaneh Hajishirzi",
+    "venue": "arXiv preprint, 2023",
+    "url": "https://arxiv.org/abs/2310.11511",
+    "text": "Despite their remarkable capabilities, large language models often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues, but indiscriminately retrieving and incorporating a fixed number of passages, regardless of whether retrieval is necessary or passages are relevant, diminishes flexibility and can lead to unhelpful response generation. This paper introduces a new framework called Self-Reflective Retrieval-Augmented Generation (Self-RAG) that enhances an LM's quality and factuality through retrieval and self-reflection. The framework trains a single arbitrary LM that adaptively retrieves passages on-demand, and generates and reflects on retrieved passages and its own generations using special tokens called reflection tokens (Retrieve, ISREL, ISSUP, ISUSE). Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. Experiments show that Self-RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, Self-RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form generations relative to these models."
+  },
+  {
+    "id": "gao2023ragsurvey",
+    "arxiv_id": "2312.10997",
+    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+    "authors": "Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi Dai, Jiawei Sun, Meng Wang, Haofen Wang",
+    "venue": "arXiv preprint, 2023",
+    "url": "https://arxiv.org/abs/2312.10997",
+    "text": "Large Language Models (LLMs) demonstrate powerful capabilities, but they still face challenges, including hallucination, outdated knowledge, and non-transparent, untraceable reasoning processes. Retrieval-Augmented Generation (RAG) has emerged as a promising solution by incorporating knowledge from external databases, enhancing model accuracy and credibility for knowledge-intensive tasks. This survey systematically reviews the progression of RAG paradigms, encompassing three main paradigms: Naive RAG, Advanced RAG, and Modular RAG. Naive RAG follows a traditional retrieve-read framework of indexing, retrieval, and generation, but suffers from retrieval challenges (low precision and recall), generation difficulties (hallucination), and augmentation hurdles (integrating retrieved content coherently). Advanced RAG introduces specific improvements via pre-retrieval strategies (indexing optimization, query rewriting and expansion) and post-retrieval strategies (reranking, context compression) to overcome these limitations. Modular RAG advances further, offering greater adaptability and versatility by incorporating new modules, such as search, memory, routing, prediction, and task-adapter modules, and enabling module substitution or reconfiguration to address specific challenges, exemplified by techniques such as Rewrite-Retrieve-Read, Generate-Read, and Self-RAG's flexible orchestration. The paper scrutinizes the retrieval, generation, and augmentation techniques, and offers a comprehensive evaluation framework and benchmark, concluding with a discussion of persisting challenges and promising future research directions, including robustness to noisy retrieval, scaling laws for RAG, and multimodal RAG."
+  },
+  {
+    "id": "gan2025ragevalsurvey",
+    "arxiv_id": "2504.14891",
+    "title": "Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey",
+    "authors": "Aoran Gan, Hao Yu, Kai Zhang, Qi Liu, Wenyu Yan, Zhenya Huang, Shiwei Tong, Guoping Hu",
+    "venue": "arXiv preprint, 2025",
+    "url": "https://arxiv.org/abs/2504.14891",
+    "text": "Retrieval-Augmented Generation (RAG) systems, which combine large language models with external retrieval components, have rapidly become central to knowledge-intensive NLP applications. However, evaluating RAG systems presents unique challenges due to their hybrid architecture that combines retrieval and generation components, each with distinct failure modes, and their dependence on dynamic, external knowledge sources. This survey systematically reviews evaluation approaches for RAG systems, addressing system performance, factual accuracy, safety, and computational efficiency. It compiles RAG-specific evaluation datasets and frameworks, covering both retrieval-focused metrics (such as precision, recall, and mean reciprocal rank of retrieved passages) and generation-focused metrics (such as faithfulness, answer relevance, and citation accuracy), as well as end-to-end evaluation protocols that jointly assess retrieval and generation quality. The survey analyzes evaluation practices adopted in high-impact recent research, highlighting a shift from traditional reference-based metrics toward LLM-based judges and human-aligned evaluation protocols, and discusses open challenges including evaluation cost, reproducibility, and the need for standardized benchmarks that reflect real-world RAG deployment conditions."
+  },
+  {
+    "id": "izacard2022contriever",
+    "arxiv_id": "2112.09118",
+    "title": "Unsupervised Dense Information Retrieval with Contrastive Learning (Contriever)",
+    "authors": "Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, Edouard Grave",
+    "venue": "TMLR 2022",
+    "url": "https://arxiv.org/abs/2112.09118",
+    "text": "Recent progress in information retrieval has been driven by dense retrieval methods relying on large amounts of human-labeled supervised data, which limits applicability to domains and languages where such labels are unavailable. This work explores unsupervised learning of dense retrieval models via contrastive learning, showing that it leads to strong retrieval performance without using any labeled data. The resulting model, Contriever, is trained using random cropping of text segments and an inverse cloze task as positive pairs, combined with a large set of in-batch and cross-batch negatives via a momentum contrastive mechanism. When evaluated on the BEIR benchmark across 18 diverse retrieval tasks, the unsupervised Contriever model is competitive with the strong BM25 baseline, and even outperforms it in several tasks, demonstrating that unsupervised dense retrieval is a viable alternative to sparse retrieval for out-of-domain and low-resource settings, and provides a strong initialization for further supervised fine-tuning."
+  }
+]
